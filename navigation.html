@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../img/valorantlogo-removebg-preview.png">
+  <title>Vaalerach-Advanced VALORANT searching platform</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    header{
+      background: black;
+    }
+    li{
+      list-style: none;
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    .navbar{
+      min-height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+    }
+    .nav-menu{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 60px; 
+    }
+    .nav-branding{
+      font-size: 3rem;
+    }
+    .nav-link{
+      transition: 0.7s ease;
+    }
+    .nav-link:hover{
+      color: dodgerblue;
+      opacity: 80%;
+    }
+    .hamburger{
+      display: none;
+      cursor: pointer;
+    }
+    .bar{
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition:all 0.3s ease-in-out;
+      background-color: white;
+    }
+    #dropdownMenuLink{
+      color: dodgerblue;
+    }
+    #log-inbutton{
+      color: aliceblue;
+      border-radius: 8px;
+      left: 2cm;
+    }
+    .navbar-brand{
+      width: 65px;
+      height: 63px;
+    }
+    @media (max-width:425px) {
+      .hamburger{
+        display: block;
+      }
+      .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+      }
+      .hamburger.active .bar:nth-child(1){
+        transform: translateY(2px) rotate(180deg);
+      }
+      .hamburger.active .bar:nth-child(3){
+        transform: translateY(-2px) rotate(-180deg);
+      }
+      .nav-menu{
+        position: fixed;
+        width: 50%;
+        gap: 0;
+        height: fit-content;
+        position: absolute;
+        left: -50%;
+        top: 60px;
+        flex-direction: column;
+        background-color: #262622;
+        text-align: center;
+        transition: 0.5s;
+        z-index: 1;
+      }
+      .dropdown-item{
+        margin: 30px 20px;
+      }
+      .nav-item{
+        margin: 15px 30px;
+      }
+      .nav-menu.active{
+        left: 0;
+      }
+  </style>
+  <!--nav responsive-->
+  <style>
+    .banner {
+      width: 100%;
+      height: 100%;
+    }
+
+    .reveal {
+      position: relative;
+      transform: translateY(150px);
+      opacity: 0;
+      transition: 2ms ease-in;
+    }
+
+    .reveal.active {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  </style>
+  <!-- css of banner -->
+  <style>
+    .img2incard {
+      height: 6.5cm;
+    }
+
+    .cardhover {
+      box-shadow: 10px;
+    }
+
+    .cardhover:hover {
+      position: relative;
+      bottom: 0.8cm;
+      background-color: whitesmoke;
+      color: whitesmoke;
+      left: 0.3cm;
+    }
+
+    .imghover {
+      border-radius: 10px;
+    }
+
+    .cardall {
+      position: relative;
+      bottom: 8cm;
+    }
+
+    h5 {
+      color: black;
+    }
+
+    p {
+      color: black;
+    }
+  </style>
+  <!-- css of card -->
+  <style>
+    .videoinhome {
+      position: relative;
+      bottom: 8cm;
+    }
+
+    .textinvideohome {
+      position: relative;
+      left: 1.5cm;
+      text-align: center;
+      color: white;
+      top: 1cm;
+    }
+
+    .textinvideohome:hover {
+      text-overflow: ellipsis;
+    }
+
+    .video {
+      position: relative;
+      left: 1.5cm;
+    }
+
+    .video:hover {
+      opacity: 80%;
+    }
+  </style>
+  <!-- css of video in home -->
+  <style>
+    .pngofagent {
+      width: 375px;
+      height: 700px;
+      position: relative;
+      left: 1.5cm;
+      border-style: dashed;
+      border-radius: 5px;
+    }
+
+    .pngofagentheader {
+      position: relative;
+      bottom: 8cm;
+    }
+
+    .textinthepngofagentheader {
+      color: white;
+      position: relative;
+      top: 3.5cm;
+      right: 3cm;
+    }
+
+    .textinthepngofagentheader:hover {
+      bottom: 5cm;
+    }
+
+    .buttoninapngofagentheader {
+      position: relative;
+      top: 2cm;
+      left: 2cm;
+      color: white;
+    }
+
+    .buttoninapngofagentheader:hover {
+      opacity: 65%;
+    }
+  </style>
+  <!-- css of png in the home page -->
+  <style>
+    .textinthee-sport {
+      color: white;
+    }
+
+    .e-sport {
+      position: relative;
+      bottom: 8.5cm;
+    }
+
+    .imgofthee-sport {
+      width: 850px;
+      height: 470px;
+      position: relative;
+      left: 6cm;
+    }
+
+    .imgofthee-sport:hover {
+      opacity: 95%;
+    }
+
+    .buttoninthee-sport {
+      color: yellow;
+      background-color: yellow;
+      width: 500px;
+      position: relative;
+      left: 10cm;
+      bottom: 2.5cm;
+    }
+  </style>
+  <!--css of e-sport new  -->
+  <style>
+    .riotcopyright{
+      color: black;
+      line-height: 3cm;
+      font-size: larger;
+      font-family: serif;
+      text-overflow: clip;
+      text-align: center;
+      bottom: 15cm;
+    }
+    .riotfooter{
+      bottom: 10cm;
+      position: relative;
+    }
+    .imgfooter{
+      width: 135px;
+      height: 191px;
+      position: relative;
+      left: 11cm;
+    }
+    .teamtext{
+      color: white;
+      line-height: 5cm;
+      position: relative;
+      left: 16cm;
+      font-family: serif;
+      font-size: larger;
+      bottom: 7cm;
+    }
+    .textinbutton{
+      color: black;
+    }
+    .buttonriotfooter{
+      position: relative;
+      bottom: 3.5cm;
+      left: 15cm;
+    }
+  </style>
+  <!--footer-->
+</head>
+
+<body>
+  <div class="bg-dark">
+    <header>
+      <nav class="navbar">
+        <img src="../img/valorantlogo-removebg-preview.png" alt="" class="navbar-brand">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="navigation.html" class="nav-link">Home</a>
+          </li>
+          <div class="dropdown">
+          <a class=" dropdown-toggle btn-dark btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          Media
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Wallpaper</a></li>
+              <li><a class="dropdown-item" href="https://www.vcrdb.net/">Crosshair</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+          <a class=" dropdown-toggle btn-dark btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          News
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="Game.html">Game</a></li>
+              <li><a class="dropdown-item" href="#">Patch Notes</a></li>
+            </ul>
+          </div>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+          <div class="dropdown">
+          <a class=" dropdown-toggle btn-dark btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          More
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="https://valorantesports.com/">E-sport</a></li>
+              <li><a class="dropdown-item" href="#">Credit</a></li>
+              <li><a class="dropdown-item" href="#">About</a></li>
+            </ul>
+          </div>
+          <li class="nav-pills nav-fill bg-danger" id="log-inbutton">
+            <a href="Log-In.html" class="nav-link">Log-In</a>
+          </li>
+          <li class="nav-pills nav-fill bg-danger" id="log-inbutton">
+            <a href="Sign-Up.html" class="nav-link">Sign-Up</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <!-- navbar -->
+    <div class="">
+      <div class="">
+        <img src="../img/habor.jpg" alt="" class="banner">
+      </div>
+      <div class="mx-5 bannertext bg-dark ">
+        <H1>Do not stop destroying.</H1>
+        <br>
+        <h2>Valerach is the right place for you.</h2>
+        <hr class="w-100">
+        <button><a href="" class="text-decoration-none text-capitalize">More</a></button>
+      </div>
+    </div>
+    <!-- banner -->
+    <div class="row cardall  my-2 mx-2">
+      <div>
+        <h1 class="text-danger display-2">THE LASTEST</h1>
+      </div>
+      <div class="card mb-3  border-3 col-4  col-md-4 cardhover bg-gradient">
+        <img src="../img/jett.jpg" class="card-img-top border-dark imghover" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Wallpaper</h5>
+          <br>
+          <p class="card-text">Check out the lastest and coolest Wallpaper</p>
+          <button class="btn btn-danger text-more"><a href=""
+              class="rounded-pill text-decoration-none">More</a></button>
+          <br>
+          <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card mb-3 border-3 col-4  col-md-4 cardhover bg-gradient">
+        <img src="../img/ch.png" class="card-img-top img2incard w-100 imghover" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Crosshair</h5>
+          <br>
+          <p class="card-text">Check out the lastest patch notes updates</p>
+          <button class="btn btn-danger text-decoration-none text-more"><a href="https://www.vcrdb.net/"
+              class="rounded-pill text-decoration-none">More</a></button>
+          <br>
+          <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card mb-3 border-3 col-4  col-md-4 cardhover bg-gradient">
+        <img src="../img/patchnotes5.08.jpg" class="card-img-top imghover" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Patch Notes</h5>
+          <br>
+          <p class="card-text">Check out the lastest patch notes updates</p>
+          <button class="btn btn-danger text-decoration-none text-more"><a href=""
+              class="rounded-pill text-decoration-none">More</a></button>
+          <br>
+          <p class="card-text"><small class="text-muted">Last updated 9 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+    <!-- card -->
+    <div class="row videoinhome my-3">
+      <div class="col-6 textinvideohome">
+        <h2>DEFY THE LIMITS</h2>
+        <hr>
+        <h4>Blend your style and experience on a global, competitive stage. You have 13 rounds to attack and defend your
+          side using sharp gunplay and tactical abilities. And, with one life per-round, you'll need to think faster
+          than your opponent if you want to survive.</h4>
+      </div>
+      <div class="col-6 video w-25">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t72VZpX9bYM?controls=0"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <!-- video in home page -->
+    <div class="pngofagentheader bg-danger row my-5 mx-0">
+      <div class="col-6">
+        <img src="../img/HD-wallpaper-valorant-jett-phoneix.jpg" alt="" class="pngofagent border-3">
+      </div>
+      <div class="textinthepngofagentheader col-6">
+        <h2 class="text-center">YOUR AGENTS</h2>
+        <hr>
+        <h4 class="text-center">
+          <strong>CREATIVITY IS YOUR GREATEST WEAPON.</strong>
+          More than guns and bullets, you’ll choose an Agent armed with adaptive, swift, and lethal abilities that
+          create opportunities to let your gunplay shine. No two Agents play alike, just as no two highlight reels will
+          look the same.
+        </h4>
+        <button type="submit" class="btn btn-warning buttoninapngofagentheader w-75"><a href=""
+            class="text-decoration-none">View All Agents</a></button>
+      </div>
+    </div>
+    <!-- png in home page -->
+    <div class="e-sport">
+      <div class="textinthee-sport">
+        <h1 class="text-center">Find Out Our Latest E-sports News</h1>
+      </div>
+      <div class="">
+        <img src="../img/Valorant_VCT2022season.jpg" alt="" class="imgofthee-sport">
+      </div>
+      <button class="rounded-pill btn buttoninthee-sport"><a href="https://valorantesports.com/"
+          class="text-decoration-none">More</a></button>
+    </div>
+    <!-- e-sport news -->
+    <div class="riotfooter bg-white">
+      <p class="riotcopyright">© 2022 Riot Games, Inc. Riot Games, VALORANT, and any associated logos are trademarks, service marks, and/or registered trademarks of Riot Games, Inc.</p>
+      <br>
+      <button type="button" class="btn btn-outline-dark buttonriotfooter"><a href="https://www.riotgames.com/en/terms-of-service?_ga=2.197918959.1789699324.1666514557-1892339642.1666334435" class="textinbutton">TERM OF SERVICE</a></button>
+      <img src="../img/1200px-ESRB_Teen.svg.png" alt="" class="imgfooter">
+    </div>
+  </div>
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const hamburger =document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu")
+    hamburger.addEventListener("click", () =>{
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    })
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener ("click", ()=> {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    } ))
+  </script>
+  </body>
+  </html>
